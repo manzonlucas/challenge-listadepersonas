@@ -7,7 +7,6 @@ lista_personas = [
     ('44444444', 'Bruno', 'Mac', 25),
 ]
 
-
 def ordenar(lista_personas):
     """ El metodo debe devolver una lista con las edades ordenadas de menor a mayor"""
     # Completar
@@ -18,7 +17,7 @@ def ordenar(lista_personas):
 def convertir_a_diccionario(lista_personas):
     """ Hacer un diccionario que tenga como claves los “dni” y como valores tuplas con nombre, apellido y edad """
     # Completar
-    respuesta = {}
+    respuesta = dict()
     for persona in lista_personas:
         respuesta.update({
             persona[0]: (persona[1], persona[2], persona[3])
@@ -29,14 +28,15 @@ def convertir_a_diccionario(lista_personas):
 def devolver_edad(lista_personas, dni):
     """ Para la 'lista_personas' devuelve la edad de la persona que tenga el dni definido.
     Tip: intentar usar el método convertir_a_diccionario"""
-    # Completar
-    pass
+    listado = convertir_a_diccionario(lista_personas)
+    return listado[dni][2]
+    # return convertir_a_diccionario(lista_personas)[dni][2]
 
 
 def eliminar_repetidos(lista_personas):
     """ El metodo debe devolver los elementos unicos """
-    # Completar
-    pass
+    return list(dict.fromkeys(lista_personas))
+    # return list(set(lista_personas))
 
 
 def separar_por_edad(lista_personas):
@@ -44,8 +44,16 @@ def separar_por_edad(lista_personas):
     * lista 1: mayores de 25 (incluido)
     * lista 2: menores de 25
     """
-    # Completar
-    return [], []
+    lista1 = list()
+    lista2 = list()
+
+    for persona in lista_personas:
+        if persona[3] >= 25:
+            lista1.append(persona)
+        else: 
+            lista2.append(persona)
+
+    return lista1, lista2
 
 
 def obtener_promedio(lista):
