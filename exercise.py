@@ -11,13 +11,19 @@ lista_personas = [
 def ordenar(lista_personas):
     """ El metodo debe devolver una lista con las edades ordenadas de menor a mayor"""
     # Completar
+    return sorted(lista_personas, key=lambda persona: persona[3])
     pass
 
 
 def convertir_a_diccionario(lista_personas):
     """ Hacer un diccionario que tenga como claves los “dni” y como valores tuplas con nombre, apellido y edad """
     # Completar
-    pass
+    respuesta = {}
+    for persona in lista_personas:
+        respuesta.update({
+            persona[0]: (persona[1], persona[2], persona[3])
+        })
+    return respuesta
 
 
 def devolver_edad(lista_personas, dni):
