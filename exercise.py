@@ -36,7 +36,11 @@ def devolver_edad(lista_personas, dni):
 
 def eliminar_repetidos(lista_personas):
     """ El metodo debe devolver los elementos unicos """
-    return list(dict.fromkeys(lista_personas))
+    temp = dict.fromkeys(lista_personas)
+    return list(temp)
+
+    # return list(dict.fromkeys(lista_personas))
+
     # return list(set(lista_personas))
 
 
@@ -63,12 +67,12 @@ def obtener_promedio(lista):
     try:
         acc = 0
         for persona in lista:
-         acc = acc + persona[3]
+          acc = acc + persona[3]
         return acc / len(lista)
     except:
         if len(lista) == 0:
             return 'No se permite dividir por 0'
-        else: return 'Se produjo otro error'
+        else: return 'Se produjo otro tipo de error'
 
 
 def main():
