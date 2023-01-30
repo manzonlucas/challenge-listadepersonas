@@ -7,6 +7,7 @@ lista_personas = [
     ('44444444', 'Bruno', 'Mac', 25),
 ]
 
+
 def ordenar(lista_personas):
     """ El metodo debe devolver una lista con las edades ordenadas de menor a mayor"""
     # Completar
@@ -50,7 +51,7 @@ def separar_por_edad(lista_personas):
     for persona in lista_personas:
         if persona[3] >= 25:
             lista1.append(persona)
-        else: 
+        else:
             lista2.append(persona)
 
     return lista1, lista2
@@ -59,18 +60,30 @@ def separar_por_edad(lista_personas):
 def obtener_promedio(lista):
     """ Implementar obtener el promedio de la lista de números que se recibe.
     Capturar con un try/except la excepción de dividir por cero"""
-    # Completar
-    pass
+    try:
+        acc = 0
+        for persona in lista:
+         acc = acc + persona[3]
+        return acc / len(lista)
+    except:
+        if len(lista) == 0:
+            return 'No se permite dividir por 0'
+        else: return 'Se produjo otro error'
 
 
 def main():
     """ Este metodo no debe modificarse y es solo a fines de probar el codigo """
     print('Resultados:\n')
     print(' * Edades ordenadas: %s\n' % ordenar(lista_personas))
-    print(' * Elementos como diccionario: %s\n' % convertir_a_diccionario(lista_personas))
-    print(' * La edad para dni 55555555 es: %s\n' % devolver_edad(lista_personas, '55555555'))
+    print(' * Elementos como diccionario: %s\n' %
+          convertir_a_diccionario(lista_personas))
+    print(' * La edad para dni 55555555 es: %s\n' %
+          devolver_edad(lista_personas, '55555555'))
     print(' * Elementos únicos: %s\n' % eliminar_repetidos(lista_personas))
-    print(' * Los mayores de 25 son: %s\n' % separar_por_edad(lista_personas)[0])
-    print(' * Los menores de 25 son: %s\n' % separar_por_edad(lista_personas)[1])
-    print(' * El promedio de las edades es: %s\n' % obtener_promedio(ordenar(lista_personas)))
+    print(' * Los mayores de 25 son: %s\n' %
+          separar_por_edad(lista_personas)[0])
+    print(' * Los menores de 25 son: %s\n' %
+          separar_por_edad(lista_personas)[1])
+    print(' * El promedio de las edades es: %s\n' %
+          obtener_promedio(ordenar(lista_personas)))
     print(' * El promedio de una lista vacía es: %s\n' % obtener_promedio([]))
